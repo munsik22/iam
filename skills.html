@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프로젝트 & 역량 | 백엔드 개발자 박준식</title>
-    <!-- Tailwind CSS CDN -->
+    <title>프로젝트 & 역량 | 개발자 박준식</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 커스텀 스타일시트 연결 -->
     <link rel="stylesheet" href="css/styles.css">
     
     <script>
@@ -42,104 +38,61 @@
 </head>
 <body class="text-navy-800 antialiased selection:bg-butter-100 selection:text-butter-600 flex flex-col min-h-screen">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-navy-100 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2">
-                    <span class="bg-navy-800 text-butter-400 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm">JS</span>
-                    <span class="font-bold text-navy-800 tracking-tight">JUNSIK.DEV</span>
-                </a>
-                <!-- Menu -->
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="index.html" class="text-navy-800 hover:text-butter-600 transition-colors">소개</a>
-                    <a href="skills.html" class="text-navy-800 hover:text-butter-600 transition-colors">프로젝트 & 역량</a>
-                    <a href="background.html" class="text-navy-800 hover:text-butter-600 transition-colors">전공 시너지</a>
-                    <a href="life.html" class="text-navy-800 hover:text-butter-600 transition-colors">라이프 & 가치</a>
-                    <a href="contact.html" class="bg-navy-800 text-butter-400 hover:bg-navy-900 transition-all px-4 py-2 rounded-lg font-semibold shadow-sm hover:shadow">연락하기</a>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-navy-800 hover:text-butter-500 focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-navy-100 transition-all">
-            <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col font-medium">
-                <a href="index.html" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors">소개</a>
-                <a href="skills.html" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors">프로젝트 & 역량</a>
-                <a href="background.html" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors">전공 시너지</a>
-                <a href="life.html" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors">라이프 & 가치</a>
-                <a href="contact.html" class="inline-block py-2 text-center bg-navy-800 text-butter-400 rounded-lg">연락하기</a>
-            </div>
-        </div>
-        <!-- Scroll Progress Bar Container -->
-        <div class="absolute bottom-0 left-0 w-full h-[3px] bg-transparent">
-            <div id="scroll-progress-bar" class="h-full bg-butter-500 transition-all duration-75" style="width: 0%;"></div>
-        </div>
-    </nav>
+    <div id="header-placeholder" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100"></div>
 
-    <!-- STRENGTHS & PROJECTS SECTION -->
     <main class="flex-grow">
         <section class="py-24 bg-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
                 <div class="text-center max-w-2xl mx-auto mb-20">
                     <span class="text-xs font-bold uppercase tracking-wider text-butter-600 bg-butter-100 px-3 py-1 rounded-full">Skill & Project</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3">팀에 꼭 필요한 든든한 백엔드/인프라</h2>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3">팀에 꼭 필요한 두 가지 무기</h2>
                     <p class="text-slate-500 mt-4 leading-relaxed">
                         프로젝트 진행 시 인프라나 까다로운 백엔드 영역을 믿고 맡길 수 있는 든든하고 신뢰감 높은 역량을 보여드립니다.
                     </p>
                 </div>
 
-                <!-- Grid of Core Weaponry -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
                     
-                    <!-- Project Card 1: Sanji-Jikgyeong (Infrastructure) -->
                     <div class="bg-slate-50 border border-navy-100 rounded-3xl p-8 hover:shadow-xl hover:border-butter-400 transition-all duration-300 flex flex-col justify-between">
                         <div>
                             <div class="flex items-start justify-between mb-6">
                                 <span class="w-12 h-12 rounded-2xl bg-navy-800 flex items-center justify-center text-butter-400 text-xl font-bold shadow-md">
                                     <i class="fa-solid fa-network-wired"></i>
                                 </span>
-                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">인프라/배포 가능</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">인프라/배포 최적화</span>
                             </div>
                             <h3 class="text-xl font-extrabold text-navy-900 mb-2">뼈대부터 튼튼하게 구축하는 '안정적인 인프라 구축가'</h3>
                             <p class="text-xs text-butter-600 font-bold mb-4">대표작: '산지직경' 실시간 경매 서비스</p>
                             <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                                실시간 경매 서비스에서 인프라 및 배포를 담당하며, 서비스가 중단 없이 원활하게 돌아가도록 보이지 않는 곳에서 뼈대를 단단히 다졌습니다. 배포 자동화 파이프라인 전반을 책임지며 고가용성 환경을 구축했습니다.
+                                실시간 경매 서비스에서 인프라 및 배포 아키텍처를 전담하며, 트래픽이 몰리는 순간에도 서비스가 중단 없이 원활하게 돌아가도록 보이지 않는 곳에서 시스템의 뼈대를 단단히 다졌습니다. CI/CD 파이프라인 전반을 책임지며 무중단 배포 및 고가용성 환경을 완벽히 구축해 냈습니다.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Project Card 2: S-Logistics (Business Logic) -->
                     <div class="bg-slate-50 border border-navy-100 rounded-3xl p-8 hover:shadow-xl hover:border-butter-400 transition-all duration-300 flex flex-col justify-between">
                         <div>
                             <div class="flex items-start justify-between mb-6">
                                 <span class="w-12 h-12 rounded-2xl bg-navy-800 flex items-center justify-center text-butter-400 text-xl font-bold shadow-md">
                                     <i class="fa-solid fa-gears"></i>
                                 </span>
-                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">핵심 백엔드 집중</span>
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">핵심 백엔드 로직</span>
                             </div>
                             <h3 class="text-xl font-extrabold text-navy-900 mb-2">복잡한 흐름을 유연하게 제어하는 '비즈니스 로직 해결사'</h3>
                             <p class="text-xs text-butter-600 font-bold mb-4">대표작: 'S로지스틱스' 물류 관리 서비스</p>
                             <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                                물류 및 배송 관리 서비스에서 가장 까다로운 핵심 시스템인 '주문 서비스'를 담당했습니다. 전체적인 데이터의 흐름을 꼼꼼하게 설계하고, 발생할 수 있는 동시성 문제와 다양한 예외 상황을 세심하게 처리한 역량을 가지고 있습니다.
+                                물류 및 배송 관리 서비스에서 가장 도메인이 복잡하고 까다로운 핵심 시스템인 '주문 및 결제 동시성 서비스'를 담당했습니다. 전체적인 데이터 흐름을 꼼꼼하게 설계하고, 분산 환경에서 발생할 수 있는 데이터 정합성 문제와 다양한 예외 상황을 세심하게 처리했습니다.
                             </p>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- Quick Links to GitHub, Blog & Portfolio -->
-                <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-8">
+                <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
                     <a href="https://github.com/qkrwns1478" target="_blank" rel="noopener noreferrer" 
                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-black text-white font-bold px-6 py-4 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md group">
                         <span class="text-xl"><i class="fa-brands fa-github"></i></span>
-                        <span>GitHub 프로필</span>
+                        <span>GitHub 프로필 방문하기</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white transition-colors"></i>
                     </a>
                     <a href="https://munsik22.tistory.com" target="_blank" rel="noopener noreferrer" 
@@ -160,31 +113,8 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-navy-900 text-slate-400 border-t border-slate-800 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <!-- Branding -->
-                <div class="flex items-center gap-2">
-                    <span class="bg-slate-800 text-butter-400 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm">JS</span>
-                    <span class="font-bold text-white tracking-tight">JUNSIK.DEV</span>
-                </div>
-                
-                <!-- Info Message -->
-                <p class="text-xs text-slate-500 text-center md:text-left">
-                    © 2026 Park Jun-Sik. Designed with Gemini Canvas. All rights reserved.
-                </p>
+    <footer id="footer-placeholder" class="bg-navy-900 text-slate-400 border-t border-slate-800 py-12 mt-auto"></footer>
 
-                <!-- Socials -->
-                <div class="flex items-center gap-4 text-lg">
-                    <a href="https://github.com/qkrwns1478" target="_blank" class="hover:text-butter-400 transition-colors"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://munsik22.tistory.com" target="_blank" class="hover:text-butter-400 transition-colors"><i class="fa-solid fa-blog"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 자바스크립트 연결 -->
     <script src="js/main.js" defer></script>
 </body>
 </html>
