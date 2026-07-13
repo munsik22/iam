@@ -1,11 +1,631 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello SSAFY</title>
-  </head>
-  <body>
-    Hello SSAFY!
-  </body>
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본이 탄탄한 백엔드 개발자 | 박준식</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#F1F5F9',
+                            100: '#E2E8F0',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                        },
+                        butter: {
+                            100: '#FEF3C7',
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        offwhite: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .shih-tzu-tail {
+            transform-origin: 30% 80%;
+            animation: wag 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes wag {
+            0% { transform: rotate(-8deg); }
+            100% { transform: rotate(12deg); }
+        }
+        .circuit-line {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: dash 3s linear infinite;
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body class="text-navy-800 antialiased selection:bg-butter-100 selection:text-butter-600">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-navy-100 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <span class="bg-navy-800 text-butter-400 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm">JS</span>
+                    <span class="font-bold text-navy-800 tracking-tight">JUNSIK.DEV</span>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#hero" class="text-navy-800 hover:text-butter-600 transition-colors">소개</a>
+                    <a href="#skills" class="text-navy-800 hover:text-butter-600 transition-colors">프로젝트 & 역량</a>
+                    <a href="#background" class="text-navy-800 hover:text-butter-600 transition-colors">전공 시너지</a>
+                    <a href="#life" class="text-navy-800 hover:text-butter-600 transition-colors">라이프 & 가치</a>
+                    <a href="#contact" class="bg-navy-800 text-butter-400 hover:bg-navy-900 transition-all px-4 py-2 rounded-lg font-semibold shadow-sm hover:shadow">연락하기</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-navy-800 hover:text-butter-500 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-navy-100 transition-all">
+            <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col font-medium">
+                <a href="#hero" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors" onclick="toggleMenu()">소개</a>
+                <a href="#skills" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors" onclick="toggleMenu()">프로젝트 & 역량</a>
+                <a href="#background" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors" onclick="toggleMenu()">전공 시너지</a>
+                <a href="#life" class="block py-2 text-navy-800 hover:text-butter-600 transition-colors" onclick="toggleMenu()">라이프 & 가치</a>
+                <a href="#contact" class="inline-block py-2 text-center bg-navy-800 text-butter-400 rounded-lg" onclick="toggleMenu()">연락하기</a>
+            </div>
+        </div>
+        <!-- Scroll Progress Bar Container -->
+        <div class="absolute bottom-0 left-0 w-full h-[3px] bg-transparent">
+            <div id="scroll-progress-bar" class="h-full bg-butter-500 transition-all duration-75" style="width: 0%;"></div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-navy-50 to-offwhite border-b border-slate-100 scroll-mt-16">
+        <!-- Background Elements -->
+        <div class="absolute top-10 left-10 w-72 h-72 bg-butter-100/30 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-navy-100/40 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Refined Catchphrase & Core Intro -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-navy-100 text-xs font-semibold text-navy-800 shadow-sm mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        SSAFY 예비 핵심 팀원 대기 중 🚀
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight mb-6">
+                        보이지 않는 곳을<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-navy-800 to-navy-900 border-b-4 border-butter-400 pb-1">단단하게 지탱하는</span> 인프라처럼,
+                    </h1>
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-medium">
+                        든든하고 섬세한 개발자 박준식입니다.
+                    </p>
+
+                    <!-- Core Tags -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-2 mb-10">
+                        <span class="bg-white border border-navy-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">#안정적인_인프라구축</span>
+                        <span class="bg-white border border-navy-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">#섬세한_비즈니스로직</span>
+                        <span class="bg-white border border-navy-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">#전자공학_구조적사고</span>
+                        <span class="bg-white border border-navy-100 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">#다정한_동료_ISFJ</span>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#skills" class="bg-navy-800 hover:bg-navy-900 text-white font-semibold px-6 py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-navy-900/10 hover:shadow-xl">
+                            검증된 실력 확인하기
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#life" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold px-6 py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                            🐶 문식이와 일상 구경하기
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Profile Block (Clearly Developer Park Jun-Sik) -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="relative bg-white p-6 rounded-3xl border border-navy-100 shadow-xl max-w-sm w-full transition-transform duration-300">
+
+                        <!-- Inner Avatar: Park Jun-Sik Profile -->
+                        <div class="bg-gradient-to-tr from-navy-800 to-slate-700 rounded-2xl p-6 text-white flex flex-col items-center relative overflow-hidden">
+                            <div class="absolute right-[-20px] top-[-20px] w-40 h-40 bg-butter-500/10 rounded-full blur-xl"></div>
+                            
+                            <!-- Profile Photo -->
+                            <div class="w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-white/20 shadow-inner">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" 
+                                     alt="박준식 프로필 사진" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/150x150/1E293B/FEF3C7?text=JunSik'"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-butter-400">박준식</h3>
+                            <p class="text-xs text-slate-300 mt-1">든든하고 섬세한 백엔드 개발자</p>
+                        </div>
+
+                        <!-- Card Spec Footer -->
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-center justify-between text-sm border-b border-dashed border-slate-100 pb-2">
+                                <span class="text-slate-500 font-medium"><i class="fa-solid fa-graduation-cap text-navy-800 mr-2"></i> 전공</span>
+                                <span class="font-bold text-navy-900">전자공학부 학사</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm border-b border-dashed border-slate-100 pb-2">
+                                <span class="text-slate-500 font-medium"><i class="fa-solid fa-id-card text-navy-800 mr-2"></i> MBTI</span>
+                                <span class="font-bold text-navy-900">ISFJ</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm border-b border-dashed border-slate-100 pb-2">
+                                <span class="text-slate-500 font-medium"><i class="fa-solid fa-server text-navy-800 mr-2"></i> 입증된 강점 영역</span>
+                                <span class="bg-navy-800 text-butter-400 text-xs px-2.5 py-0.5 rounded-full font-bold">인프라 배포 & 주문 로직</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STRENGTHS & PROJECTS SECTION -->
+    <section id="skills" class="py-24 bg-white border-b border-slate-100 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs font-bold uppercase tracking-wider text-butter-600 bg-butter-100 px-3 py-1 rounded-full">Skill & Project</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3">팀에 꼭 필요한 든든한 백엔드/인프라</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed">
+                    프로젝트 진행 시 인프라나 까다로운 백엔드 영역을 믿고 맡길 수 있는 든든하고 신뢰감 높은 역량을 보여드립니다.
+                </p>
+            </div>
+
+            <!-- Grid of Core Weaponry -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                
+                <!-- Project Card 1: Sanjijikgyeong (Infrastructure) -->
+                <div class="bg-slate-50 border border-navy-100 rounded-3xl p-8 hover:shadow-xl hover:border-butter-400 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="w-12 h-12 rounded-2xl bg-navy-800 flex items-center justify-center text-butter-400 text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </span>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">인프라/배포 가능</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-2">뼈대부터 튼튼하게 구축하는 '안정적인 인프라 구축가'</h3>
+                        <p class="text-xs text-butter-600 font-bold mb-4">대표작: '산지직경' 실시간 경매 서비스</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            실시간 실시간 경매 서비스에서 인프라 및 배포를 담당하며, 서비스가 중단 없이 원활하게 돌아가도록 보이지 않는 곳에서 뼈대를 단단히 다졌습니다. 배포 자동화 파이프라인 전반을 책임지며 고가용성 환경을 구축했습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: S-Logistics (Business Logic) -->
+                <div class="bg-slate-50 border border-navy-100 rounded-3xl p-8 hover:shadow-xl hover:border-butter-400 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="w-12 h-12 rounded-2xl bg-navy-800 flex items-center justify-center text-butter-400 text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-gears"></i>
+                            </span>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">핵심 백엔드 집중</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-2">복잡한 흐름을 유연하게 제어하는 '비즈니스 로직 해결사'</h3>
+                        <p class="text-xs text-butter-600 font-bold mb-4">대표작: 'S로지스틱스' 물류 관리 서비스</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            물류 및 배송 관리 서비스에서 가장 까다로운 핵심 시스템인 '주문 서비스'를 담당했습니다. 전체적인 데이터의 흐름을 꼼꼼하게 설계하고, 발생할 수 있는 동시성 문제와 다양한 예외 상황을 세심하게 처리한 역량을 가지고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quick Links to GitHub, Blog & Portfolio -->
+            <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-16">
+                <a href="https://github.com/qkrwns1478" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-black text-white font-bold px-6 py-4 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md group">
+                    <span class="text-xl"><i class="fa-brands fa-github"></i></span>
+                    <span>GitHub 프로필</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white transition-colors"></i>
+                </a>
+                <a href="https://munsik22.tistory.com" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-50 border border-navy-100 hover:border-butter-500 text-navy-800 font-bold px-6 py-4 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md group">
+                    <span class="text-amber-500 text-lg"><i class="fa-solid fa-blog"></i></span>
+                    <span>기술 블로그 구경하기</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-butter-600 transition-colors"></i>
+                </a>
+                <a href="https://qkrwns1478.vercel.app" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-navy-800 hover:bg-navy-900 text-white font-bold px-6 py-4 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg group">
+                    <span class="text-butter-400 text-lg"><i class="fa-solid fa-folder-open"></i></span>
+                    <span>상세 포트폴리오 웹사이트</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-butter-400/70 group-hover:text-butter-400 transition-colors"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BACKGROUND SECTION -->
+    <section id="background" class="py-24 bg-gradient-to-tr from-navy-900 to-navy-800 text-white relative overflow-hidden scroll-mt-16">
+        <!-- Interactive Circuit SVG decoration in background -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="circuit-line" d="M100,200 L300,200 L400,300 L600,300 L700,100" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+                <path class="circuit-line" d="M800,400 L600,400 L500,600 L200,600" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+                <circle cx="400" cy="300" r="8" fill="#F59E0B" />
+                <circle cx="500" cy="600" r="8" fill="#F59E0B" />
+            </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-bold uppercase tracking-wider text-butter-400 bg-butter-500/20 px-3 py-1 rounded-full">Background</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6">하드웨어와 소프트웨어를 아우르는<br><span class="text-butter-400">전자공학적 문제 해결 능력</span></h2>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        전자공학부를 전공하며 하드웨어적 흐름과 시스템의 전체적인 물리 아키텍처 레벨까지 깊이 있게 이해하는 역량을 다졌습니다.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-8">
+                        이러한 공학적 기반은 소프트웨어 설계 과정에서 시스템 전체의 구조와 데이터 흐름을 입체적으로 바라볼 수 있게 해 줍니다. 가장 기본적이고 논리적인 구조에서 출발하여, 예외 없이 촘촘하게 구동되는 탄탄한 백엔드를 개발하는 원동력이 됩니다.
+                    </p>
+                </div>
+
+                <!-- Right Board -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="bg-navy-800/90 border border-slate-700 p-8 rounded-3xl w-full max-w-sm shadow-2xl relative">
+                        <div class="absolute -top-4 -left-4 bg-butter-500 text-navy-900 text-xs font-bold px-3.5 py-1 rounded-lg">전자공학에서 소프트웨어로</div>
+                        <h4 class="text-sm uppercase tracking-widest text-slate-400 font-bold mb-4">Structure to Code</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 bg-navy-900/60 p-4 rounded-xl border border-slate-700/50">
+                                <div class="w-10 h-10 rounded-lg bg-butter-500/10 flex items-center justify-center text-butter-400 font-bold"><i class="fa-solid fa-microchip"></i></div>
+                                <div>
+                                    <h5 class="text-xs text-slate-400">시스템 흐름 분석</h5>
+                                    <p class="text-sm font-semibold">아키텍처의 물리적 원리 이해</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-navy-900/60 p-4 rounded-xl border border-slate-700/50">
+                                <div class="w-10 h-10 rounded-lg bg-butter-500/10 flex items-center justify-center text-butter-400 font-bold"><i class="fa-solid fa-code"></i></div>
+                                <div>
+                                    <h5 class="text-xs text-slate-400">소프트웨어 설계</h5>
+                                    <p class="text-sm font-semibold">구조적이고 촘촘한 비즈니스 설계</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFE & VALUE SECTION -->
+    <section id="life" class="py-24 bg-slate-50 border-b border-slate-100 scroll-mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-butter-600 bg-butter-100 px-3 py-1 rounded-full">Life & Value</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3">알고 보면 따뜻하고 둥글둥글한 동료</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed">
+                    기술의 차가움을 부드럽게 완화하는 세심함과 성실함으로 팀 전체의 신뢰와 화합을 만들어 냅니다.
+                </p>
+            </div>
+
+            <!-- Card grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Shih Tzu Munsik -->
+                <div class="bg-white p-8 rounded-3xl border border-navy-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 text-2xl mb-6">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">12년차 단짝 시츄 문식이</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            반려견 문식이와의 소소하고 따뜻한 일상을 아끼며 소중히 보살피는 마음처럼, 주변 동료들을 세심하게 챙기고 팀의 분위기를 따스하게 이끕니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: TFT (Teamfight Tactics) -->
+                <div class="bg-white p-8 rounded-3xl border border-navy-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-violet-50 rounded-2xl flex items-center justify-center text-violet-500 text-2xl mb-6">
+                            <i class="fa-solid fa-chess"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">TFT와 전략적 유쾌함</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            퇴근 후 롤토체스를 즐기며 전략적인 빌드업을 설계하는 유쾌함을 지니고 있습니다. 매 상황 유연한 전략을 설계하는 능력을 가지고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Diligent Blogger -->
+                <div class="bg-white p-8 rounded-3xl border border-navy-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 text-2xl mb-6">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">성실하게 기록하는 개발 로그</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            배우고 겪은 경험을 개발 블로그에 꾸준히 정돈해 나가며 꼼꼼하게 아카이빙합니다. 팀원들과 열린 지식 공유 및 소통을 추구합니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MUNSIK GALLERY (Slide Carousel) -->
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-bold text-navy-900 flex items-center justify-center gap-2 mt-3">
+                        <span>🐾</span> 문식이의 따뜻한 일상 갤러리
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-2">지친 공부 시간 뒤에 항상 포근한 위로를 주는 소중한 단짝의 소소한 일상 조각들</p>
+                </div>
+
+                <div class="relative bg-white p-3 rounded-3xl border border-navy-100 shadow-sm overflow-hidden">
+                    <!-- Carousel Window -->
+                    <div class="relative overflow-hidden rounded-2xl aspect-[1.8/1] sm:aspect-[16/9] bg-slate-100">
+                        <!-- Slides Wrapper -->
+                        <div id="munsik-carousel" class="flex transition-transform duration-500 ease-out h-full" style="transform: translateX(0%);">
+                            
+                            <!-- Slide 1 -->
+                            <div class="min-w-full h-full relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=1200" 
+                                     alt="공부 방해하는 문식이" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x450/FEF3C7/D97706?text=Munsik+Studying'"
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                                    <span class="bg-butter-400 text-navy-900 text-[9px] font-bold px-2 py-0.5 rounded-full w-max mb-1.5">Munsik Life #1</span>
+                                    <h4 class="text-sm sm:text-base font-bold">"공부 방해용 모니터 앞 지키미"</h4>
+                                    <p class="text-[11px] text-slate-300 mt-1 leading-relaxed">코드가 안 풀릴 때 턱밑까지 다가와 강제로 꿀맛 같은 휴식을 선물하는 사랑스러운 방해 공작</p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="min-w-full h-full relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1200" 
+                                     alt="산책 후 기절한 문식이" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x450/E2E8F0/1E293B?text=Munsik+Sleeping'"
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                                    <span class="bg-butter-400 text-navy-900 text-[9px] font-bold px-2 py-0.5 rounded-full w-max mb-1.5">Munsik Life #2</span>
+                                    <h4 class="text-sm sm:text-base font-bold">"기적의 가성비 산책 후 완전 기절"</h4>
+                                    <p class="text-[11px] text-slate-300 mt-1 leading-relaxed">신나게 산책을 마친 후, 따뜻한 거실 장판에서 세상 편안하게 단잠에 빠진 모습</p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="min-w-full h-full relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1200" 
+                                     alt="고구마 기다리는 문식이" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x450/FEF3C7/D97706?text=Munsik+Snack'"
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                                    <span class="bg-butter-400 text-navy-900 text-[9px] font-bold px-2 py-0.5 rounded-full w-max mb-1.5">Munsik Life #3</span>
+                                    <h4 class="text-sm sm:text-base font-bold">"초롱초롱한 눈빛의 최애 고구마 간식 대기 자세"</h4>
+                                    <p class="text-[11px] text-slate-300 mt-1 leading-relaxed">이 맑고 간절한 눈빛을 마주하면 그 어떤 디버깅 세션 중이라도 벌떡 일어나 부엌으로 향하게 됩니다</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy-800 w-9 h-9 rounded-full flex items-center justify-center shadow transition-all focus:outline-none">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy-800 w-9 h-9 rounded-full flex items-center justify-center shadow transition-all focus:outline-none">
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </button>
+                    </div>
+
+                    <!-- Slide Indicators / Dots -->
+                    <div class="flex justify-center gap-1.5 mt-3.5" id="carousel-dots">
+                        <button onclick="setSlide(0)" class="w-2 h-2 rounded-full bg-butter-500 transition-all" aria-label="Slide 1"></button>
+                        <button onclick="setSlide(1)" class="w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-all" aria-label="Slide 2"></button>
+                        <button onclick="setSlide(2)" class="w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-all" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OUTRO / CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-navy-800 text-white relative overflow-hidden scroll-mt-16">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-butter-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="text-xs font-bold uppercase tracking-wider text-butter-400 bg-butter-500/10 px-3 py-1 rounded-full">Contact</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold mt-4 mb-6">우리, 함께 멋진 프로젝트 만들어봐요!</h2>
+            <p class="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+                SSAFY 프로젝트를 든든하고 안정감 있게 뒷받침해줄 완벽한 인프라 & 백엔드 개발자를 찾으신다면 망설임 없이 손을 내밀어 주세요.
+            </p>
+
+            <!-- Proposal Action Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto mb-16 text-left">
+                <!-- Email contact info -->
+                <div class="bg-navy-900 border border-slate-700/60 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-butter-400 text-lg mb-2"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="text-xs text-slate-400">이메일 연락망</div>
+                        <div class="text-sm font-bold mt-1 text-white select-all">qkrwns1478@naver.com</div>
+                    </div>
+                    <button onclick="copyToClipboard('qkrwns1478@naver.com')" class="mt-4 w-full bg-navy-800 hover:bg-navy-700 text-butter-400 hover:text-butter-300 border border-slate-700/80 transition-all py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>이메일 주소 복사하기</span>
+                    </button>
+                </div>
+                <!-- Bio contact info -->
+                <div class="bg-navy-900 border border-slate-700/60 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-butter-400 text-lg mb-2"><i class="fa-solid fa-comment-dots"></i></div>
+                        <div class="text-xs text-slate-400">카카오톡 ID / 메신저</div>
+                        <div class="text-sm font-bold mt-1 text-white select-all">@qkrwns1478</div>
+                    </div>
+                    <button onclick="copyToClipboard('@qkrwns1478')" class="mt-4 w-full bg-navy-800 hover:bg-navy-700 text-butter-400 hover:text-butter-300 border border-slate-700/80 transition-all py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>카카오톡 ID 복사하기</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toast Notification -->
+            <div id="toast-message" class="hidden fixed bottom-6 right-6 z-50 bg-navy-900 border border-butter-400 text-white py-3 px-5 rounded-xl shadow-2xl items-center gap-3 animate-bounce">
+                <span class="text-butter-400">📋</span>
+                <span id="toast-text" class="text-xs font-semibold">복사되었습니다!</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 text-slate-400 border-t border-slate-800 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Branding -->
+                <div class="flex items-center gap-2">
+                    <span class="bg-slate-800 text-butter-400 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm">JS</span>
+                    <span class="font-bold text-white tracking-tight">JUNSIK.DEV</span>
+                </div>
+                
+                <!-- Info Message -->
+                <p class="text-xs text-slate-500 text-center md:text-left">
+                    © 2026 Park Jun-Sik. Designed with Gemini Canvas. All rights reserved.
+                </p>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-4 text-lg">
+                    <a href="https://github.com/qkrwns1478" target="_blank" class="hover:text-butter-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://munsik22.tistory.com" target="_blank" class="hover:text-butter-400 transition-colors"><i class="fa-solid fa-blog"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Logic -->
+    <script>
+        // Clipboard Copy Utility
+        function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Toast Alert
+            const toast = document.getElementById('toast-message');
+            const toastText = document.getElementById('toast-text');
+            toastText.innerText = `[${text}] 클립보드에 복사되었습니다.`;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.remove('flex');
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Mobile responsive menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMenu);
+
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            document.getElementById("scroll-progress-bar").style.width = scrolled + "%";
+        });
+
+        // Munsik Gallery Slider Logic
+        let currentMunsikSlide = 0;
+        const totalMunsikSlides = 3;
+        const carouselTrack = document.getElementById('munsik-carousel');
+        const dotsContainer = document.getElementById('carousel-dots');
+
+        function updateSlidePosition() {
+            carouselTrack.style.transform = `translateX(-${currentMunsikSlide * 100}%)`;
+            
+            // Update indicator dots dynamically
+            const dots = dotsContainer.getElementsByTagName('button');
+            for (let i = 0; i < dots.length; i++) {
+                if (i === currentMunsikSlide) {
+                    dots[i].classList.remove('bg-slate-300', 'hover:bg-slate-400');
+                    dots[i].classList.add('bg-butter-500');
+                } else {
+                    dots[i].classList.remove('bg-butter-500');
+                    dots[i].classList.add('bg-slate-300', 'hover:bg-slate-400');
+                }
+            }
+        }
+
+        function nextSlide() {
+            currentMunsikSlide = (currentMunsikSlide + 1) % totalMunsikSlides;
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            currentMunsikSlide = (currentMunsikSlide - 1 + totalMunsikSlides) % totalMunsikSlides;
+            updateSlidePosition();
+        }
+
+        function setSlide(index) {
+            currentMunsikSlide = index;
+            updateSlidePosition();
+        }
+
+        // Adaptive Touch Gesture Event Handlers for Mobile Screens
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const carouselWindow = carouselTrack.parentElement;
+        carouselWindow.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselWindow.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 40; // swipe sensitiveness threshold
+            if (touchStartX - touchEndX > threshold) {
+                nextSlide(); // Swiped left -> load next image
+            } else if (touchEndX - touchStartX > threshold) {
+                prevSlide(); // Swiped right -> load previous image
+            }
+        }
+    </script>
+</body>
 </html>
