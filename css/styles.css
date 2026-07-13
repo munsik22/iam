@@ -23,3 +23,19 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  width: 2px;
+  background: linear-gradient(to bottom, #f59e0b 0%, #1e293b 100%);
+}
+@media (min-width: 640px) {
+  .timeline-line::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

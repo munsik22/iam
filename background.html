@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>전공 시너지 | 개발자 박준식</title>
+    <title>전공 & 히스토리 | 개발자 박준식</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tailwind-config.js"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
@@ -14,55 +14,154 @@
 
     <div id="header-placeholder" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100"></div>
 
-    <main class="flex-grow flex items-center justify-center bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden py-24" style="background: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #090d16 100%);">
-        
-        <canvas id="circuitCanvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-75"></canvas>
-        
-        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 z-0 pointer-events-none"></div>
+    <!-- 메인 레이아웃: 백그라운드 서킷 테마 유지 -->
+    <main class="flex-grow bg-gradient-to-tr from-slate-950 via-slate-900 to-slate-950 overflow-hidden py-24 sm:py-32" style="background: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #090d16 100%);">
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 text-white">
-                    <span class="text-xs font-bold uppercase tracking-wider text-butter-400 bg-butter-500/20 px-3 py-1 rounded-full">Background</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6 [text-shadow:_0_2px_4px_rgba(15,23,42,0.6)]">
-                        하드웨어와 소프트웨어를 아우르는<br><span class="text-butter-400">전자공학적 문제 해결 능력</span>
-                    </h2>
-                    
-                    <div class="space-y-6 bg-[#090d16]/98 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-2xl">
-                        <p class="text-slate-100 leading-relaxed font-semibold text-base sm:text-lg">
-                            전자공학부를 전공하며 컴퓨터 아키텍처의 논리회로 설계 및 하드웨어적 흐름부터 시스템의 물리적 인프라 구조 레벨까지 깊이 있게 파고드는 공학적 역량을 탄탄하게 다졌습니다.
-                        </p>
-                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base opacity-95">
-                            이러한 배경은 복잡한 소프트웨어 설계 과정에서 시스템 전체의 병목 구간 및 데이터 흐름을 다각적이고 입체적으로 바라볼 수 있는 큰 자산이 되었습니다. 가장 기본적이고 직관적인 논리 구조에서 출발하여, 예외 상황 없이 촘촘하게 구동되는 무결점 백엔드를 설계하는 저만의 고유한 원동력입니다.
-                        </p>
-                    </div>
-                </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-24">
+            
+            <!-- SECTION 1: MAJOR SYNERGY -->
+            <div class="relative overflow-hidden py-12 sm:py-16 px-6 sm:px-10 rounded-3xl border border-slate-800/80 bg-slate-950/40 backdrop-blur-sm shadow-2xl">
+                <canvas id="circuitCanvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-75"></canvas>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70 z-0 pointer-events-none"></div>
 
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="bg-[#090d16]/98 border border-slate-800 p-8 rounded-3xl w-full max-w-sm shadow-2xl relative text-white backdrop-blur-md">
-                        <div class="absolute -top-4 -left-4 bg-butter-500 text-slate-900 text-xs font-bold px-3.5 py-1 rounded-lg shadow-md">전자공학에서 소프트웨어로</div>
-                        <h4 class="text-sm uppercase tracking-widest text-slate-400 font-bold mb-4">Structure to Code</h4>
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full">Major Synergy</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6 [text-shadow:_0_2px_4px_rgba(15,23,42,0.6)]">
+                            하드웨어와 소프트웨어를 아우르는<br><span class="text-amber-400">전자공학적 문제 해결 능력</span>
+                        </h2>
                         
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 bg-slate-900/90 p-4 rounded-xl border border-slate-800">
-                                <div class="w-10 h-10 rounded-lg bg-butter-500/10 flex items-center justify-center text-butter-400 font-bold"><i class="fa-solid fa-microchip"></i></div>
-                                <div>
-                                    <h5 class="text-xs text-slate-400">시스템 흐름 분석</h5>
-                                    <p class="text-sm font-semibold">아키텍처의 하드웨어적 구조 이해</p>
+                        <div class="space-y-6 bg-[#090d16]/95 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-2xl">
+                            <p class="text-slate-100 leading-relaxed font-semibold text-base sm:text-lg">
+                                전자공학부를 전공하며 컴퓨터 아키텍처의 논리회로 설계 및 하드웨어적 흐름부터 시스템의 물리적 인프라 구조 레벨까지 깊이 있게 파고드는 공학적 역량을 탄탄하게 다졌습니다.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed text-sm sm:text-base opacity-95">
+                                이러한 배경은 복잡한 소프트웨어 설계 과정에서 시스템 전체의 병목 구간 및 데이터 흐름을 다각적이고 입체적으로 바라볼 수 있는 큰 자산이 되었습니다. 가장 기본적이고 직관적인 논리 구조에서 출발하여, 예외 상황 없이 촘촘하게 구동되는 무결점 백엔드를 설계하는 저만의 고유한 원동력입니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="bg-[#090d16]/95 border border-slate-800 p-8 rounded-3xl w-full max-w-sm shadow-2xl relative text-white backdrop-blur-md">
+                            <div class="absolute -top-4 -left-4 bg-amber-500 text-slate-900 text-xs font-bold px-3.5 py-1 rounded-lg shadow-md">전자공학에서 소프트웨어로</div>
+                            <h4 class="text-sm uppercase tracking-widest text-slate-400 font-bold mb-4">Structure to Code</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 bg-slate-900/90 p-4 rounded-xl border border-slate-800 hover:border-amber-500/30 transition-all">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold"><i class="fa-solid fa-microchip"></i></div>
+                                    <div>
+                                        <h5 class="text-xs text-slate-400">시스템 흐름 분석</h5>
+                                        <p class="text-sm font-semibold">아키텍처의 하드웨어적 구조 이해</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-center gap-4 bg-slate-900/90 p-4 rounded-xl border border-slate-800">
-                                <div class="w-10 h-10 rounded-lg bg-butter-500/10 flex items-center justify-center text-butter-400 font-bold"><i class="fa-solid fa-code"></i></div>
-                                <div>
-                                    <h5 class="text-xs text-slate-400">소프트웨어 설계</h5>
-                                    <p class="text-sm font-semibold">구조적이고 촘촘한 비즈니스 마일스톤</p>
+                                <div class="flex items-center gap-4 bg-slate-900/90 p-4 rounded-xl border border-slate-800 hover:border-amber-500/30 transition-all">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold"><i class="fa-solid fa-code"></i></div>
+                                    <div>
+                                        <h5 class="text-xs text-slate-400">소프트웨어 설계</h5>
+                                        <p class="text-sm font-semibold">구조적이고 촘촘한 비즈니스 마일스톤</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- SECTION 2: TIMELINE (개발 학습 및 활동 타임라인) -->
+            <div class="text-white pt-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full">Timeline</span>
+                    <h3 class="text-3xl font-extrabold text-white mt-3 [text-shadow:_0_2px_4px_rgba(15,23,42,0.6)]">지속적 몰입을 통한 성장 여정</h3>
+                    <p class="text-slate-400 mt-3 text-sm sm:text-base">기본기부터 심화 웹 기술, 현업 역량까지 밟아온 단단한 성장 트랙입니다.</p>
+                </div>
+
+                <!-- 타임라인 컨테이너 -->
+                <div class="relative timeline-line space-y-12 sm:space-y-16">
+
+                    <!-- 카드 1: SSAFY (Now!) - 가장 최신 정보로 상단 강조 -->
+                    <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
+                        <div class="hidden sm:block w-[calc(50%-30px)] text-right">
+                            <span class="text-xs text-amber-400 font-bold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30">현재 진행 중</span>
+                        </div>
+                        
+                        <!-- 중앙 마커 -->
+                        <div class="absolute left-[15px] sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-amber-500 border-4 border-slate-900 flex items-center justify-center z-20 shadow-[0_0_15px_rgba(245,158,11,0.5)]">
+                            <i class="fa-solid fa-star text-slate-950 text-[10px]"></i>
+                        </div>
+
+                        <div class="w-full sm:w-[calc(50%-30px)] pl-12 sm:pl-0 sm:pr-0">
+                            <div class="bg-[#090d16]/95 border border-amber-500/40 p-6 rounded-2xl shadow-xl hover:border-amber-500/80 transition-all">
+                                <span class="sm:hidden block w-fit text-xs text-amber-400 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30 mb-2">현재 진행 중</span>
+                                <span class="text-xs text-amber-400 font-semibold">2026.07 - 현재</span>
+                                <h4 class="text-lg font-bold mt-1 mb-2 text-white">삼성 청년 SW 아카데미 (SSAFY) <span class="text-xs text-amber-300 ml-1">Now!</span></h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    몰입형 학습 환경에서 개발자로서의 기본기를 다시 한번 다지며, 동료들과 함께 양질의 협업 문화를 경험하고 실력을 고도화하는 초기 단계를 수행 중입니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 2: 내일배움캠프 자바 단기심화 -->
+                    <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
+                        <div class="w-full sm:w-[calc(50%-30px)] pl-12 sm:pl-0 text-left sm:text-right order-2 sm:order-1">
+                            <div class="bg-[#090d16]/95 border border-slate-800 p-6 rounded-2xl shadow-xl hover:border-slate-700 transition-all">
+                                <span class="text-xs text-slate-400 font-semibold">2026.04 - 2026.07</span>
+                                <h4 class="text-lg font-bold mt-1 mb-2 text-white">내일배움캠프 자바 단기심화</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Spring 백엔드 프레임워크의 핵심 개념을 극대화하여 구조적으로 고도화된 REST API 설계 및 비즈니스 마일스톤에 따른 완결성 높은 시스템 개발을 실천했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 중앙 마커 -->
+                        <div class="absolute left-[15px] sm:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-900 flex items-center justify-center z-20">
+                            <i class="fa-solid fa-circle text-amber-500 text-[6px]"></i>
+                        </div>
+
+                        <div class="hidden sm:block w-[calc(50%-30px)] order-2"></div>
+                    </div>
+
+                    <!-- 카드 3: 크래프톤 정글 -->
+                    <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
+                        <div class="hidden sm:block w-[calc(50%-30px)]"></div>
+                        
+                        <!-- 중앙 마커 -->
+                        <div class="absolute left-[15px] sm:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-900 flex items-center justify-center z-20">
+                            <i class="fa-solid fa-circle text-amber-500 text-[6px]"></i>
+                        </div>
+
+                        <div class="w-full sm:w-[calc(50%-30px)] pl-12 sm:pl-0">
+                            <div class="bg-[#090d16]/95 border border-slate-800 p-6 rounded-2xl shadow-xl hover:border-slate-700 transition-all">
+                                <span class="text-xs text-slate-400 font-semibold">2025.03 - 2025.07</span>
+                                <h4 class="text-lg font-bold mt-1 mb-2 text-white">크래프톤 정글</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    자료구조, 알고리즘. 운영체제(OS) 등 탄탄한 CS 기본기를 고정밀 단위로 분석하고 학습하는 고강도 몰입 환경을 거쳐 탄탄한 기본기를 완성했습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 4: 현장실습 인턴활동 -->
+                    <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
+                        <div class="w-full sm:w-[calc(50%-30px)] pl-12 sm:pl-0 text-left sm:text-right order-2 sm:order-1">
+                            <div class="bg-[#090d16]/95 border border-slate-800 p-6 rounded-2xl shadow-xl hover:border-slate-700 transition-all">
+                                <span class="text-xs text-slate-400 font-semibold">2024.01 - 2024.02</span>
+                                <h4 class="text-lg font-bold mt-1 mb-2 text-white">현장실습 인턴활동</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    실제 실무 생태계에서 바닐라 HTM/CSS/JS를 사용해 사용성 높은 화면 구동 모듈을 구현해 보며 프론트엔드 작동 원리 및 백엔드와의 구조적 접점을 탐색했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 중앙 마커 -->
+                        <div class="absolute left-[15px] sm:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-slate-800 border-4 border-slate-900 flex items-center justify-center z-20">
+                            <i class="fa-solid fa-circle text-amber-500 text-[6px]"></i>
+                        </div>
+
+                        <div class="hidden sm:block w-[calc(50%-30px)] order-2"></div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </main>
