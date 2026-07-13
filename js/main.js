@@ -105,8 +105,8 @@ function initInteractions() {
         const href = link.getAttribute('href');
         if (href && !href.startsWith('#')) {
             if (currentPath.includes(href) || (href === 'index.html' && (currentPath === '/' || currentPath.endsWith('/') || currentPath.endsWith('index.html')))) {
-                if (!link.classList.contains('bg-navy-800')) {
-                    link.classList.remove('text-navy-800');
+                if (!link.classList.contains('bg-slate-800')) {
+                    link.classList.remove('text-slate-800');
                     link.classList.add('text-butter-600', 'font-bold');
                 }
             }

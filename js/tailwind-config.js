@@ -5,7 +5,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        navy: {
+        slate: {
           50: "#F1F5F9",
           100: "#E2E8F0",
           800: "#1E293B",
